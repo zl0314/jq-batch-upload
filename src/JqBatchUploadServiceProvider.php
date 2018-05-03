@@ -19,7 +19,7 @@ class JqBatchUploadServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom( $viewPath, 'BatchUpload' );
         $this->publishes( [
-            $viewPath => resource_path() . '/vendor/jq-batch-upload',
+			$viewPath => resource_path() . '/views/vendor/jq-batch-upload',
         ], 'view' );
 
         //资源文件

@@ -47,14 +47,14 @@ class UploadController
                     'src' => $new_file,
                     'message' => '上传成功'
                 ];
-				return response()->ajax($data);
+				return response()->json($data);
             } else {
                 $data = [
                     'success' => 0,
                     'src' => '',
                     'message' => '上传失败'
                 ];
-                return response()->ajax($data);
+                return response()->json($data);
             }
         }
     }

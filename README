@@ -15,8 +15,14 @@ this.init({
     allowSize : '{{intval(ini_get('upload_max_filesize'))*1024*1024}}',
     callback: function (dom) {
         $.post('/jq-batch-upload/upload', {src: this.imgSrc}, function (res) {
-            $(dom).attr('realsrc', res.data.src);
-            $(dom).find('input').val(res.data.src);
+            $.post('/jq-batch-upload/upload', {src: this.imgSrc}, function (res) {
+				if(res.success == 1){
+					$(dom).attr('realsrc', res.src);
+					$(dom).find('input').val(res.src);
+				}else{
+					alert(res.message);
+				}
+			}, 'json');
         }, 'json');
     },
     remove: function (id) {

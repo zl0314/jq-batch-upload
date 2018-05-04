@@ -10,6 +10,7 @@ var imgFile = new ImgUploadeFiles('#box', function (e) {
 this.init({
     MAX: 1, //限制个数
     inputName: 'pics',
+	imgList : '{{!empty($model->qrs) ? $model->qrs : ''}}',
     MH: 800, //像素限制高度
     MW: 300, //像素限制宽度
     allowSize : '{{intval(ini_get('upload_max_filesize'))*1024*1024}}',

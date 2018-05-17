@@ -14,12 +14,22 @@ class UploadController
 {
     public function upload ( Request $request )
     {
+
         if ( preg_match( '/^(data:\s*image\/(\w+);base64,)/', $request->src, $result ) ) {
             $type = $result[2];
 
             $t = time();
             $d = explode( '-', date( "Y-y-m-d-H-i-s" ) );
             $format = config( 'jq-batch-upload.uploadPath' );
+            //是否发布了jq-batch-upload配置项
+            if(empty($format)){
+                $data = [
+                    'success' => 0,
+                    'src' => '',
+                    'message' => '未发布配置文件.请执行:php artisan vendor:publish --tag=config'
+                ];
+                return response()->json($data);
+            }
             $format = str_replace( "{yyyy}", $d[0], $format );
             $format = str_replace( "{yy}", $d[1], $format );
             $format = str_replace( "{mm}", $d[2], $format );

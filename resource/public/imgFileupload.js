@@ -64,12 +64,9 @@
             for (var k = 0; k < _Imgpreview.length; k++) {
                 $(_Imgpreview[k]).off().on('click', function () {
                     if (confirm('确认要删除吗？')) {
-                        $(this).parent().fadeOut('slow', function () {
-                            $(this).remove();
-                            var _deid = $(this).parent().attr('data-delid');
-                            o.remove(_deid);
-                        });
-
+                        var _deid = $(this).parent().attr('data-delid');
+                        _self.remove(_deid);
+                        $(this).parent().remove();
                     }
                 })
             }
@@ -217,12 +214,9 @@
         for (var k = 0; k < _Imgpreview.length; k++) {
             $(_Imgpreview[k]).off().on('click', function () {
                 if (confirm('确认要删除吗？')) {
-                    $(this).parent().fadeOut('slow', function () {
-                        $(this).remove();
-                        var _deid = $(this).parent().attr('data-delid');
-                        _self.remove(_deid);
-                    });
-
+                    var _deid = $(this).parent().attr('data-delid');
+                    _self.remove(_deid);
+                    $(this).parent().remove();
                 }
             })
         }

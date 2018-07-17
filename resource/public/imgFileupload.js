@@ -10,7 +10,7 @@
         '    <span class="imgClick">' +
         '    </span>' +
         '    <span class="imgcontent">' +
-        '        请上传' +
+        '        最多可上传' +
         '    </span>' +
         '</div>' +
         '<div class="imgAll">' +
@@ -45,7 +45,7 @@
             this.fileClick = this.bom.querySelector('.imgClick');
             this.fileBtn(this.fileClick, this.files);
             this.imgcontent = this.bom.querySelector('.imgcontent');
-            this.imgcontent.innerHTML = '请上传<b style="color:red">' + this.MAX + '</b>张' + _self.MW + ' * ' + _self.MH + '像素的图片';
+            this.imgcontent.innerHTML = '最多可上传<b style="color:red">' + this.MAX + '</b>张' + _self.MW + ' * ' + _self.MH + '像素的图片';
             if (this.imgList) {
                 this.imgList = JSON.parse(this.imgList);
                 this.renderList(_self);
@@ -65,7 +65,7 @@
                 $(_Imgpreview[k]).off().on('click', function () {
                     if (confirm('确认要删除吗？')) {
                         var _deid = $(this).parent().attr('data-delid');
-                        _self.remove(_deid);
+                        o.remove(_deid);
                         $(this).parent().remove();
                     }
                 })

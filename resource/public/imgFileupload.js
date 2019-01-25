@@ -14,7 +14,7 @@
         '    </span>' +
         '</div>' +
         '<div class="imgAll">' +
-        '    <ul>' +
+        '    <ul  id="sortable">' +
         '    </ul>' +
         '</div>';
     var ImgUploadeFiles = function (obj, fn) {
@@ -54,7 +54,7 @@
         renderList: function (o) {
             var html = '';
             for (i in this.imgList) {
-                html += '<li data-delid="' + i + '" id="batch_upload_' + i + '" realsrc="' + this.imgList[i] + '"> ' +
+                html += '<li class="ui-state-default" data-delid="' + i + '" id="batch_upload_' + i + '" realsrc="' + this.imgList[i] + '"> ' +
                     '<img alt="" src="' + this.imgList[i] + '">' +
                     '<input type="hidden" name="' + this.inputName + '" value="' + this.imgList[i] + '"><i class="delImg">X </i></li>';
             }
